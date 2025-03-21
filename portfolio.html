@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <style>
+        /* Basic CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Body Styles */
+        body {
+            background-color: #f0f5ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #3a6ea5;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        /* Background Animation */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #3a6ea5, #004e92, #2a5298, #4b79a1);
+            background-size: 400% 400%;
+            z-index: 1;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background-color: #2a5298;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-link:hover {
+            background-color: #4b79a1;
+        }
+        
+        /* Main Content Styles */
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none; /* Hide sections by default */
+        }
+        
+        section.active {
+            display: block; /* Show active section */
+        }
+        
+        h2 {
+            color: #2a5298;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4b79a1;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: #3a6ea5;
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        /* About Section */
+        .about-text {
+            margin-bottom: 1rem;
+        }
+        
+        .birth-date {
+            font-weight: bold;
+        }
+        
+        /* Education Section */
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .school-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #3a6ea5;
+        }
+        
+        .education-years {
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #3a6ea5;
+        }
+        
+        .company-name {
+            font-style: italic;
+        }
+        
+        .experience-years {
+            color: #666;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-item {
+            background-color: #f0f5ff;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            border-left: 3px solid #3a6ea5;
+        }
+        
+        .skill-title {
+            font-weight: bold;
+            color: #2a5298;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .skill-description {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        /* Certificate Button */
+        .cert-btn {
+            background-color: #3a6ea5;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .cert-btn:hover {
+            background-color: #2a5298;
+        }
+        
+        .cert-btn i {
+            margin-right: 5px;
+        }
+        
+        /* Modal for certificates */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+        
+        .modal-content {
+            margin: 5% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+        
+        .close-modal:hover {
+            color: #333;
+        }
+        
+        .certificate-img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+        
+        /* Achievement Section */
+        .achievement-item {
+            background-color: #f0f5ff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-left: 3px solid #3a6ea5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Icons */
+        .icon {
+            margin-right: 5px;
+        }
+        
+        /* Contact Section */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        /* Add image button */
+        .add-image-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .add-image-btn:hover {
+            background-color: #388E3C;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #2a5298;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with profile picture and name -->
+    <header>
+        <div class="bg-animation"></div>
+        <div class="profile-container">
+            <img src="C:\Users\HP\Downloads\crop_1701869033322.jpg" alt="My Profile Picture" class="profile-pic">
+            <h1>Manthan Pagaria</h1>
+            <p class="tagline">Web Developer | Student | Enthusiast</p>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="nav-container">
+            <a href="#about" class="nav-link">About Me</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#achievements" class="nav-link">Achievements</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about" class="active">
+            <h2>About Me</h2>
+            <p class="about-text">
+                Hello! I'm Manthan Pagaria, a passionate student currently pursuing my degree in Computer Engineering. 
+                I love creating websites and exploring new technologies. When I'm not coding, 
+                you can find me treking, listening music, playing video games .
+            </p>
+            <p class="about-text">
+                I believe in continuous learning and pushing my boundaries to achieve excellence.
+                My goal is to become a skilled developer who can create meaningful and user-friendly web experiences.
+            </p>
+            <p class="birth-date">Date of Birth: July 29, 2006</p>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <p class="school-name">Computer Engineering, Fr. Conceicao Rodrigues College of Engineering</p>
+                <p class="education-years">2024 - 2028</p>
+                <p>Currently pursuing my B.Tech in Computer Engineering, focusing on web development and software engineering. Gaining coding skills, problem-solving abilities, and hands-on experience through internships, hackathons, and projects. Actively participating in clubs, events, and extracurricular activities, building friendships, enhancing leadership skills, and fostering personal growth.</p>
+                            </div>
+            <div class="education-item">
+                <p class="school-name">Thakur Public School</p>
+                <p class="education-years">2010 - 2022</p>
+                <p>From school (1st to 10th), I acquired foundational knowledge across various streams, developed communication skills, and made lasting friendships through social interactions and teamwork.</p>
+                            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <!-- Work Experience Subsection -->
+            <h3>Work Experience</h3>
+		<p>To Be Acquired</P
+
+            <!-- Technical Skills Subsection -->
+            <h3>Technical Skills</h3>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Hackathons</h4>
+                    <div class="skill-item">
+                        <div class="skill-title">
+                            <span>BitNBuild 2024</span>
+                        </div>
+                        <p class="skill-description">Developed a web application for companies to book turf for corporate matches. Won 1st place in the Fe's.</p>
+                        <button class="cert-btn add-image-upload" data-for="codefest-certificate">
+                            <span class="icon">🏆</span> Add Certificate
+                        </button>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-title">
+                            <span>Upcoming Hackathons</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Internships</h4>
+                    <div class="skill-item">
+                        <div class="skill-title">
+                            <span>To be experienced</span>
+                        </div>
+                </div>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <div class="skill-item">
+                        <div class="skill-title">
+                            <span>HTML/CSS/JavaScript(Scavenger Hunt)</span>
+                        </div>
+                        <p class="skill-description">It's a virtual scavenger hunt game where users can explore India's scientific and cultural heritage. The interface shows a score counter, a place to display questions, and feedback for the user's answers. It aims to make learning fun and interactive by presenting questions related to museums and historical sites. The initial score is set to 0/15.</p>
+                        <a href="https://github.com/Manthan2907/github-portfolio/blob/main/quest.html" target="_blank">View Project</a>                              
+                        <div class="skill-title">
+                            <span>Python(Cybersecurity)</span>
+                        </div>
+                        <p class="skill-description">My cybersecurity toolkit offers a range of powerful features, including anomaly detection and fraud detection to identify unusual behavior and protect against fraudulent activities. It incorporates a face recognition locker for secure access control using facial recognition technology. The toolkit also provides a file encryption module to safeguard sensitive data through encryption and decryption. Additionally, it includes password management tools like a secure password generator and strength checker to enhance password security. To further reinforce security, it offers multi-factor authentication and a code execution checker to ensure code integrity and prevent unauthorized access.</p>
+                        <a href="https://github.com/Manthan2907/github-portfolio/blob/main/Cybersecurity_1.zip" target="_blank">Download Project</a>
+ 			
+			<div class="skill-title">
+                            <span>Python(Echoes of Heritage)</span>
+                        </div>
+                        <p class="skill-description">Echoes of Heritage is deeply committed to cultural preservation 
+        and heritage documentation. We strive to empower communities 
+        worldwide to safeguard their traditions and stories. Through 
+        innovative digital solutions, we aim to make cultural learning 
+        engaging and accessible to a global audience.</p>
+                        <a href="https://github.com/Manthan2907/github-portfolio/blob/main/MAIN.ipynb" target="_blank">Download Project</a>
+
+                    </div>
+                </div>
+              </div>
+            
+            <!-- Non-Technical Skills Subsection -->
+            <h3>Non-Technical Activities</h3>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Volunteering</h4>
+                    <div class="skill-item">
+                        <div class="skill-title">
+                            <span>Heart and Sole Run</span>
+                        </div>
+                        <p class="skill-description">This was a marthon organized by Rotract Club of CRC </p>
+			<p>I learned about crowd management and was assigned to direct the runners and regulate the traffic</p>
+                        <button class="cert-btn add-image-upload" data-for="code-camp-volunteer">
+                            <span class="icon">🤝</span> Add Certificate
+                        </button>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-title">
+                            <span>Environmental Clean-up Drive at Girgaon Chowpatty</span>
+                        </div>
+                        <p class="skill-description">Organized and participated in beach clean-up initiatives.</p>
+                        <button class="cert-btn add-image-upload" data-for="environmental-certificate">
+                            <span class="icon">🌱</span> Add Certificate
+                        </button>
+                    </div>
+		<div class="skill-item">
+                        <div class="skill-title">
+                            <span>Blood Donation</span>
+                        </div>
+                        <p class="skill-description">Volunteered in Blood Donation campaign by Holy Family Hospital</p>
+                        <button class="cert-btn add-image-upload" data-for="donation-certificate">
+                            <span class="icon">🩸</span> Add Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+           
+        </section>
+        
+        <!-- Achievements Section -->
+        <section id="achievements">
+            <h2>Achievements</h2>
+            <div class="achievement-item">
+                <p>🏆 Acquired 9.25 SGPA in First Semister</p>
+            </div>
+            <div class="achievement-item">
+		<p>Got selected in Finals of Bit-N-Build Hackathon</p>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me through any of these platforms:</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/manthan_2907/?utm_source=ig_web_button_share_sheet" target="_blank">
+                    <img src="C:\Users\HP\OneDrive - Shri Vile Parle Kelavani Mandal\Desktop\project\BIO\2227.jpg" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank">
+                    <img src="C:\Users\HP\OneDrive - Shri Vile Parle Kelavani Mandal\Desktop\project\BIO\8379992.jpg" class="social-icon">
+                </a>
+		<a href="https://github.com/Manthan2907">
+                    <img src="C:\Users\HP\Downloads\github_logo.png" alt="GitHUb" class="social-icon">
+                </a>
+
+            </div>
+            
+            <div class="contact-info">
+                <p>Email: manthanpagaria@gmail.com</p>
+                <p>Phone: (+91) 7678099576</p>
+            </div>
+
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Manthan Pagaria. All rights reserved.</p>
+    </footer>
+    
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modalTitle">Certificate</h3>
+            <div id="certificateContainer">
+                <!-- Certificate will be loaded here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Upload Image or Certificate</h3>
+            <form id="uploadForm">
+                <div style="margin-bottom: 15px;">
+                    <label for="imageUrl" style="display: block; margin-bottom: 5px;">Image URL:</label>
+                    <input type="text" id="imageUrl" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;" placeholder="Enter the image URL or file path">
+                </div>
+                <input type="hidden" id="uploadFor" value="">
+                <button type="submit" class="cert-btn" style="margin-top: 10px;">Upload</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- JavaScript for Navigation and Certificate Viewing -->
+    <script>
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Add click event to each link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the section id from the href attribute
+                const sectionId = this.getAttribute('href').substring(1);
+                
+                // Hide all sections
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the selected section
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+        
+        // Modal functionality
+        const certificateModal = document.getElementById('certificateModal');
+        const uploadModal = document.getElementById('uploadModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const certificateContainer = document.getElementById('certificateContainer');
+        const closeModalButtons = document.querySelectorAll('.close-modal');
+        
+        // Close modal buttons
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                certificateModal.style.display = 'none';
+                uploadModal.style.display = 'none';
+            });
+        });
+        
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', function(event) {
+            if (event.target === certificateModal) {
+                certificateModal.style.display = 'none';
+            }
+            if (event.target === uploadModal) {
+                uploadModal.style.display = 'none';
+            }
+        });
+        
+        // Load stored images from localStorage
+        let storedImages = {};
+        try {
+            const savedImages = localStorage.getItem('certificateImages');
+            if (savedImages) {
+                storedImages = JSON.parse(savedImages);
+                
+                // Update buttons for already uploaded images
+                updateImageButtons();
+            }
+        } catch (error) {
+            console.error('Error loading saved images:', error);
+            // If there's an error, start with empty storage
+            storedImages = {};
+        }
+        
+        // Function to update image buttons based on stored images
+        function updateImageButtons() {
+            for (const [key, imageUrl] of Object.entries(storedImages)) {
+                const buttons = document.querySelectorAll(`.add-image-upload[data-for="${key}"]`);
+                buttons.forEach(button => {
+                    // Skip if already converted
+                    if (button.classList.contains('view-certificate')) return;
+                    
+                    button.innerHTML = '<span class="icon">🔍</span> View Certificate';
+                    button.classList.remove('add-image-upload');
+                    button.classList.add('view-certificate');
+                    
+                    // Remove existing event listeners
+                    const newButton = button.cloneNode(true);
+                    button.parentNode.replaceChild(newButton, button);
+                    
+                    // Add new event listener
+                    newButton.addEventListener('click', function() {
+                        displayCertificate(key);
+                    });
+                });
+            }
+        }
+        
+        // Function to display certificate
+        function displayCertificate(key) {
+            const imageUrl = storedImages[key];
+            
+            // Set modal title
+            modalTitle.textContent = key.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            
+            // Clear previous content
+            certificateContainer.innerHTML = '';
+            
+            // Get file extension
+            const fileExtension = imageUrl.split('.').pop().toLowerCase();
+            
+            // Check file type and display accordingly
+            if (fileExtension === 'pdf') {
+                // Create PDF embed
+                const pdfEmbed = document.createElement('embed');
+                pdfEmbed.src = imageUrl;
+                pdfEmbed.type = 'application/pdf';
+                pdfEmbed.width = '100%';
+                pdfEmbed.height = '500px';
+                certificateContainer.appendChild(pdfEmbed);
+            } else if (['jpg', 'jpeg', 'png', 'gif'].includes(fileExtension)) {
+                // Create image element
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = 'Certificate';
+                img.className = 'certificate-img';
+                certificateContainer.appendChild(img);
+            } else {
+                // Just try as an image anyway
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = 'Certificate';
+                img.className = 'certificate-img';
+                img.onerror = function() {
+                    certificateContainer.textContent = 'Unable to display image. Unsupported file format or invalid URL.';
+                };
+                certificateContainer.appendChild(img);
+            }
+            
+            // Show certificate modal
+            certificateModal.style.display = 'block';
+        }
+        
+        // Add Image Upload buttons
+        const uploadButtons = document.querySelectorAll('.add-image-upload');
+        uploadButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const forElement = this.getAttribute('data-for');
+                document.getElementById('uploadFor').value = forElement;
+                uploadModal.style.display = 'block';
+            });
+        });
+        
+        // Handle image upload form submission
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const imageUrl = document.getElementById('imageUrl').value;
+            const forElement = document.getElementById('uploadFor').value;
+            
+            if (imageUrl) {
+                // Store the image URL
+                storedImages[forElement] = imageUrl;
+                
+                // Save to localStorage
+                try {
+                    localStorage.setItem('certificateImages', JSON.stringify(storedImages));
+                } catch (error) {
+                    console.error('Error saving to localStorage:', error);
+                    alert('There was an error saving your image. Please try again.');
+                }
+                
+                // Update button to view image
+                const buttons = document.querySelectorAll(`.add-image-upload[data-for="${forElement}"]`);
+                buttons.forEach(button => {
+                    button.innerHTML = '<span class="icon">🔍</span> View Certificate';
+                    button.classList.remove('add-image-upload');
+                    button.classList.add('view-certificate');
+                    
+                    // Remove existing event listeners
+                    const newButton = button.cloneNode(true);
+                    button.parentNode.replaceChild(newButton, button);
+                    
+                    // Add new event listener
+                    newButton.addEventListener('click', function() {
+                        displayCertificate(forElement);
+                    });
+                });
+                
+                // Close the upload modal
+                uploadModal.style.display = 'none';
+                
+                // Clear the form
+                document.getElementById('imageUrl').value = '';
+            }
+        });
+        
+        // Add clear button to the upload form for testing
+        const uploadForm = document.getElementById('uploadForm');
+        const clearStorageBtn = document.createElement('button');
+        clearStorageBtn.type = 'button';
+        clearStorageBtn.className = 'cert-btn';
+        clearStorageBtn.style.marginLeft = '10px';
+        clearStorageBtn.style.backgroundColor = '#d9534f';
+        clearStorageBtn.innerText = 'Clear All Images';
+        clearStorageBtn.addEventListener('click', function() {
+            if (confirm('Are you sure you want to clear all saved images?')) {
+                localStorage.removeItem('certificateImages');
+                storedImages = {};
+                location.reload();
+            }
+        });
+        uploadForm.appendChild(clearStorageBtn);
+        
+        // Call updateImageButtons once at the beginning to handle stored images
+        updateImageButtons();
+    </script>
+</body>
+</html>
