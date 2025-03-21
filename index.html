@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Website</title>
     <style>
-        /* Basic CSS Reset */
         * {
             margin: 0;
             padding: 0;
@@ -13,14 +12,12 @@
             font-family: Arial, sans-serif;
         }
         
-        /* Body Styles */
         body {
             background-color: #f0f5ff;
             color: #333;
             line-height: 1.6;
         }
         
-        /* Header Styles */
         header {
             background-color: #3a6ea5;
             color: white;
@@ -58,7 +55,6 @@
             margin-bottom: 1rem;
         }
         
-        /* Background Animation */
         .bg-animation {
             position: absolute;
             top: 0;
@@ -83,7 +79,6 @@
             }
         }
         
-        /* Navigation Styles */
         nav {
             background-color: #2a5298;
             position: sticky;
@@ -111,7 +106,6 @@
             background-color: #4b79a1;
         }
         
-        /* Main Content Styles */
         main {
             max-width: 1000px;
             margin: 2rem auto;
@@ -124,11 +118,11 @@
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: none; /* Hide sections by default */
+            display: none;
         }
         
         section.active {
-            display: block; /* Show active section */
+            display: block;
         }
         
         h2 {
@@ -143,7 +137,6 @@
             margin: 1.5rem 0 1rem 0;
         }
         
-        /* About Section */
         .about-text {
             margin-bottom: 1rem;
         }
@@ -152,7 +145,6 @@
             font-weight: bold;
         }
         
-        /* Education Section */
         .education-item {
             margin-bottom: 1.5rem;
         }
@@ -168,7 +160,6 @@
             color: #666;
         }
         
-        /* Experience Section */
         .experience-item {
             margin-bottom: 1.5rem;
             position: relative;
@@ -188,7 +179,6 @@
             color: #666;
         }
         
-        /* Skills Section */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -224,7 +214,6 @@
             margin-bottom: 5px;
         }
         
-        /* Certificate Button */
         .cert-btn {
             background-color: #3a6ea5;
             color: white;
@@ -246,7 +235,6 @@
             margin-right: 5px;
         }
         
-        /* Modal for certificates */
         .modal {
             display: none;
             position: fixed;
@@ -296,7 +284,6 @@
             object-fit: contain;
         }
         
-        /* Achievement Section */
         .achievement-item {
             background-color: #f0f5ff;
             padding: 15px;
@@ -308,12 +295,10 @@
             align-items: center;
         }
         
-        /* Icons */
         .icon {
             margin-right: 5px;
         }
         
-        /* Contact Section */
         .social-links {
             display: flex;
             justify-content: center;
@@ -331,12 +316,21 @@
             transform: scale(1.2);
         }
         
+        .github-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+        
+        .github-icon:hover {
+            transform: scale(1.2);
+        }
+        
         .contact-info {
             text-align: center;
             margin-top: 1.5rem;
         }
         
-        /* Add image button */
         .add-image-btn {
             background-color: #4CAF50;
             color: white;
@@ -352,7 +346,6 @@
             background-color: #388E3C;
         }
         
-        /* Footer Styles */
         footer {
             background-color: #2a5298;
             color: white;
@@ -362,7 +355,6 @@
     </style>
 </head>
 <body>
-    <!-- Header with profile picture and name -->
     <header>
         <div class="bg-animation"></div>
         <div class="profile-container">
@@ -372,7 +364,6 @@
         </div>
     </header>
     
-    <!-- Navigation Menu -->
     <nav>
         <div class="nav-container">
             <a href="#about" class="nav-link">About Me</a>
@@ -383,9 +374,7 @@
         </div>
     </nav>
     
-    <!-- Main Content -->
     <main>
-        <!-- About Section -->
         <section id="about" class="active">
             <h2>About Me</h2>
             <p class="about-text">
@@ -400,30 +389,26 @@
             <p class="birth-date">Date of Birth: July 29, 2006</p>
         </section>
         
-        <!-- Education Section -->
         <section id="education">
             <h2>Education</h2>
             <div class="education-item">
                 <p class="school-name">Computer Engineering, Fr. Conceicao Rodrigues College of Engineering</p>
                 <p class="education-years">2024 - 2028</p>
                 <p>Currently pursuing my B.Tech in Computer Engineering, focusing on web development and software engineering. Gaining coding skills, problem-solving abilities, and hands-on experience through internships, hackathons, and projects. Actively participating in clubs, events, and extracurricular activities, building friendships, enhancing leadership skills, and fostering personal growth.</p>
-                            </div>
+            </div>
             <div class="education-item">
                 <p class="school-name">Thakur Public School</p>
                 <p class="education-years">2010 - 2022</p>
                 <p>From school (1st to 10th), I acquired foundational knowledge across various streams, developed communication skills, and made lasting friendships through social interactions and teamwork.</p>
-                            </div>
+            </div>
         </section>
         
-        <!-- Experience Section -->
         <section id="experience">
             <h2>Experience</h2>
             
-            <!-- Work Experience Subsection -->
             <h3>Work Experience</h3>
-		<p>To Be Acquired</P
+            <p>To Be Acquired</p>
 
-            <!-- Technical Skills Subsection -->
             <h3>Technical Skills</h3>
             <div class="skills-container">
                 <div class="skill-category">
@@ -433,19 +418,16 @@
                             <span>BitNBuild 2024</span>
                         </div>
                         <p class="skill-description">Developed a web application for companies to book turf for corporate matches. Won 1st place in the Fe's.</p>
-                        <!-- Clickable Word -->
-<span id="clickableWord" style="color: blue; cursor: pointer;">Click here</span>
+                        <span id="clickableWord" style="color: blue; cursor: pointer;">Click here</span>
 
-<!-- The Image (Hidden by default) -->
-<img id="popupImage" src="BitnBuild (2).jpg" style="display: none; max-width: 90%; margin-top: 20px;" alt="Your Image">
+                        <img id="popupImage" src="BitnBuild (2).jpg" style="display: none; max-width: 90%; margin-top: 20px;" alt="Your Image">
 
-<!-- JavaScript Code -->
-<script>
-    document.getElementById('clickableWord').onclick = function () {
-        const image = document.getElementById('popupImage');
-        image.style.display = image.style.display === 'none' ? 'block' : 'none';
-    };
-</script>
+                        <script>
+                            document.getElementById('clickableWord').onclick = function () {
+                                const image = document.getElementById('popupImage');
+                                image.style.display = image.style.display === 'none' ? 'block' : 'none';
+                            };
+                        </script>
 
                     </div>
                     <div class="skill-item">
@@ -460,6 +442,7 @@
                         <div class="skill-title">
                             <span>To be experienced</span>
                         </div>
+                    </div>
                 </div>
             </div>
             <div class="skills-container">
@@ -477,21 +460,15 @@
                         <p class="skill-description">My cybersecurity toolkit offers a range of powerful features, including anomaly detection and fraud detection to identify unusual behavior and protect against fraudulent activities. It incorporates a face recognition locker for secure access control using facial recognition technology. The toolkit also provides a file encryption module to safeguard sensitive data through encryption and decryption. Additionally, it includes password management tools like a secure password generator and strength checker to enhance password security. To further reinforce security, it offers multi-factor authentication and a code execution checker to ensure code integrity and prevent unauthorized access.</p>
                         <a href="https://github.com/Manthan2907/github-portfolio/blob/main/Cybersecurity_1.zip" target="_blank">Download Project</a>
  			
-			<div class="skill-title">
+                        <div class="skill-title">
                             <span>Python(Echoes of Heritage)</span>
                         </div>
-                        <p class="skill-description">Echoes of Heritage is deeply committed to cultural preservation 
-        and heritage documentation. We strive to empower communities 
-        worldwide to safeguard their traditions and stories. Through 
-        innovative digital solutions, we aim to make cultural learning 
-        engaging and accessible to a global audience.</p>
+                        <p class="skill-description">Echoes of Heritage is deeply committed to cultural preservation and heritage documentation. We strive to empower communities worldwide to safeguard their traditions and stories. Through innovative digital solutions, we aim to make cultural learning engaging and accessible to a global audience.</p>
                         <a href="https://github.com/Manthan2907/github-portfolio/blob/main/MAIN.ipynb" target="_blank">Download Project</a>
-
                     </div>
                 </div>
-              </div>
+            </div>
             
-            <!-- Non-Technical Skills Subsection -->
             <h3>Non-Technical Activities</h3>
             <div class="skills-container">
                 <div class="skill-category">
@@ -501,19 +478,17 @@
                             <span>Heart and Sole Run</span>
                         </div>
                         <p class="skill-description">This was a marthon organized by Rotract Club of CRC </p>
-			<p>I learned about crowd management and was assigned to direct the runners and regulate the traffic</p>
+                        <p>I learned about crowd management and was assigned to direct the runners and regulate the traffic</p>
                         <span id="clickableWord" style="color: blue; cursor: pointer;">Click here</span>
 
-<!-- The Image (Hidden by default) -->
-<img id="popupImage" src="rotract.jpg" style="display: none; max-width: 90%; margin-top: 20px;" alt="Your Image">
+                        <img id="popupImage" src="rotract.jpg" style="display: none; max-width: 90%; margin-top: 20px;" alt="Your Image">
 
-<!-- JavaScript Code -->
-<script>
-    document.getElementById('clickableWord').onclick = function () {
-        const image = document.getElementById('popupImage');
-        image.style.display = image.style.display === 'none' ? 'block' : 'none';
-    };
-</script>
+                        <script>
+                            document.getElementById('clickableWord').onclick = function () {
+                                const image = document.getElementById('popupImage');
+                                image.style.display = image.style.display === 'none' ? 'block' : 'none';
+                            };
+                        </script>
                     </div>
                     <div class="skill-item">
                         <div class="skill-title">
@@ -522,76 +497,66 @@
                         <p class="skill-description">Organized and participated in beach clean-up initiatives.</p>
                         <span id="clickableWord" style="color: blue; cursor: pointer;">Click here</span>
 
-<!-- The Image (Hidden by default) -->
-<img id="popupImage" src="beach.pdf" style="display: none; max-width: 90%; margin-top: 20px;" alt="Your Image">
+                        <img id="popupImage" src="beach.pdf" style="display: none; max-width: 90%; margin-top: 20px;" alt="Your Image">
 
-<!-- JavaScript Code -->
-<script>
-    document.getElementById('clickableWord').onclick = function () {
-        const image = document.getElementById('popupImage');
-        image.style.display = image.style.display === 'none' ? 'block' : 'none';
-    };
-</script>
+                        <script>
+                            document.getElementById('clickableWord').onclick = function () {
+                                const image = document.getElementById('popupImage');
+                                image.style.display = image.style.display === 'none' ? 'block' : 'none';
+                            };
+                        </script>
                     </div>
-		<div class="skill-item">
+                    <div class="skill-item">
                         <div class="skill-title">
                             <span>Blood Donation</span>
                         </div>
                         <p class="skill-description">Volunteered in Blood Donation campaign by Holy Family Hospital</p>
-                        <!-- Clickable Word -->
-<span id="clickableWord" style="color: blue; cursor: pointer;">Click here for Certificate</span>
+                        <span id="clickableWord" style="color: blue; cursor: pointer;">Click here for Certificate</span>
 
-<!-- The Image (Hidden by default) -->
-<img id="popupImage" src="donation.jpg" style="display: none; max-width: 90%; margin-top: 20px;" alt="Your Image">
+                        <img id="popupImage" src="donation.jpg" style="display: none; max-width: 90%; margin-top: 20px;" alt="Your Image">
 
-<!-- JavaScript Code -->
-<script>
-    document.getElementById('clickableWord').onclick = function () {
-        const image = document.getElementById('popupImage');
-        image.style.display = image.style.display === 'none' ? 'block' : 'none';
-    };
-</script>
-
+                        <script>
+                            document.getElementById('clickableWord').onclick = function () {
+                                const image = document.getElementById('popupImage');
+                                image.style.display = image.style.display === 'none' ? 'block' : 'none';
+                            };
+                        </script>
                     </div>
                 </div>
             </div>
            
         </section>
         
-        <!-- Achievements Section -->
         <section id="achievements">
             <h2>Achievements</h2>
             <div class="achievement-item">
                 <p>🏆 Acquired 9.25 SGPA in First Semister</p>
             </div>
             <div class="achievement-item">
-		<p>Got selected in Finals of Bit-N-Build Hackathon</p>
+                <p>Got selected in Finals of Bit-N-Build Hackathon</p>
             </div>
         </section>
         
-        <!-- Contact Section -->
         <section id="contact">
             <h2>Contact Me</h2>
             <p>Feel free to reach out to me through any of these platforms:</p>
             
             <div class="social-links">
                 <a href="https://www.instagram.com/manthan_2907/?utm_source=ig_web_button_share_sheet" target="_blank">
-                    <img src="insta.jpeg" class="social-icon" alt="INSTAGRAM">
+                    <img src="insta.jpeg" class="social-icon">
                 </a>
                 <a href="https://linkedin.com/in/yourusername" target="_blank">
-                    <img src="link.jpg" class="social-icon" alt="LINKEDLIN">
+                    <img src="link.jpg" class="social-icon">
                 </a>
-		<a href="https://github.com/Manthan2907">
-                    <img src="github.png" alt="GITHUB">
+                <a href="https://github.com/Manthan2907" target="_blank">
+                    <img src="github.png" class="github-icon" style="width: 40px; height: 40px;">
                 </a>
-
             </div>
             
             <div class="contact-info">
                 <p>Email: manthanpagaria@gmail.com</p>
                 <p>Phone: (+91) 7678099576</p>
             </div>
-
         </section>
     </main>
     
@@ -599,18 +564,14 @@
         <p>&copy; 2025 Manthan Pagaria. All rights reserved.</p>
     </footer>
     
-    <!-- Certificate Modal -->
     <div id="certificateModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h3 id="modalTitle">Certificate</h3>
-            <div id="certificateContainer">
-                <!-- Certificate will be loaded here -->
-            </div>
+            <div id="certificateContainer"></div>
         </div>
     </div>
     
-    <!-- Image Upload Modal -->
     <div id="uploadModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -626,37 +587,29 @@
         </div>
     </div>
     
-    <!-- JavaScript for Navigation and Certificate Viewing -->
     <script>
-        // Get all navigation links
         const navLinks = document.querySelectorAll('.nav-link');
         
-        // Add click event to each link
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Get the section id from the href attribute
                 const sectionId = this.getAttribute('href').substring(1);
                 
-                // Hide all sections
                 document.querySelectorAll('section').forEach(section => {
                     section.classList.remove('active');
                 });
                 
-                // Show the selected section
                 document.getElementById(sectionId).classList.add('active');
             });
         });
         
-        // Modal functionality
         const certificateModal = document.getElementById('certificateModal');
         const uploadModal = document.getElementById('uploadModal');
         const modalTitle = document.getElementById('modalTitle');
         const certificateContainer = document.getElementById('certificateContainer');
         const closeModalButtons = document.querySelectorAll('.close-modal');
         
-        // Close modal buttons
         closeModalButtons.forEach(button => {
             button.addEventListener('click', function() {
                 certificateModal.style.display = 'none';
@@ -664,7 +617,6 @@
             });
         });
         
-        // Close modal when clicking outside the modal content
         window.addEventListener('click', function(event) {
             if (event.target === certificateModal) {
                 certificateModal.style.display = 'none';
@@ -674,39 +626,32 @@
             }
         });
         
-        // Load stored images from localStorage
         let storedImages = {};
         try {
             const savedImages = localStorage.getItem('certificateImages');
             if (savedImages) {
                 storedImages = JSON.parse(savedImages);
                 
-                // Update buttons for already uploaded images
                 updateImageButtons();
             }
         } catch (error) {
             console.error('Error loading saved images:', error);
-            // If there's an error, start with empty storage
             storedImages = {};
         }
         
-        // Function to update image buttons based on stored images
         function updateImageButtons() {
             for (const [key, imageUrl] of Object.entries(storedImages)) {
                 const buttons = document.querySelectorAll(`.add-image-upload[data-for="${key}"]`);
                 buttons.forEach(button => {
-                    // Skip if already converted
                     if (button.classList.contains('view-certificate')) return;
                     
                     button.innerHTML = '<span class="icon">🔍</span> View Certificate';
                     button.classList.remove('add-image-upload');
                     button.classList.add('view-certificate');
                     
-                    // Remove existing event listeners
                     const newButton = button.cloneNode(true);
                     button.parentNode.replaceChild(newButton, button);
                     
-                    // Add new event listener
                     newButton.addEventListener('click', function() {
                         displayCertificate(key);
                     });
@@ -714,22 +659,16 @@
             }
         }
         
-        // Function to display certificate
         function displayCertificate(key) {
             const imageUrl = storedImages[key];
             
-            // Set modal title
             modalTitle.textContent = key.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
             
-            // Clear previous content
             certificateContainer.innerHTML = '';
             
-            // Get file extension
             const fileExtension = imageUrl.split('.').pop().toLowerCase();
             
-            // Check file type and display accordingly
             if (fileExtension === 'pdf') {
-                // Create PDF embed
                 const pdfEmbed = document.createElement('embed');
                 pdfEmbed.src = imageUrl;
                 pdfEmbed.type = 'application/pdf';
@@ -737,14 +676,12 @@
                 pdfEmbed.height = '500px';
                 certificateContainer.appendChild(pdfEmbed);
             } else if (['jpg', 'jpeg', 'png', 'gif'].includes(fileExtension)) {
-                // Create image element
                 const img = document.createElement('img');
                 img.src = imageUrl;
                 img.alt = 'Certificate';
                 img.className = 'certificate-img';
                 certificateContainer.appendChild(img);
             } else {
-                // Just try as an image anyway
                 const img = document.createElement('img');
                 img.src = imageUrl;
                 img.alt = 'Certificate';
@@ -755,11 +692,9 @@
                 certificateContainer.appendChild(img);
             }
             
-            // Show certificate modal
             certificateModal.style.display = 'block';
         }
         
-        // Add Image Upload buttons
         const uploadButtons = document.querySelectorAll('.add-image-upload');
         uploadButtons.forEach(button => {
             button.addEventListener('click', function() {
@@ -769,7 +704,6 @@
             });
         });
         
-        // Handle image upload form submission
         document.getElementById('uploadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -777,10 +711,8 @@
             const forElement = document.getElementById('uploadFor').value;
             
             if (imageUrl) {
-                // Store the image URL
                 storedImages[forElement] = imageUrl;
                 
-                // Save to localStorage
                 try {
                     localStorage.setItem('certificateImages', JSON.stringify(storedImages));
                 } catch (error) {
@@ -788,32 +720,26 @@
                     alert('There was an error saving your image. Please try again.');
                 }
                 
-                // Update button to view image
                 const buttons = document.querySelectorAll(`.add-image-upload[data-for="${forElement}"]`);
                 buttons.forEach(button => {
                     button.innerHTML = '<span class="icon">🔍</span> View Certificate';
                     button.classList.remove('add-image-upload');
                     button.classList.add('view-certificate');
                     
-                    // Remove existing event listeners
                     const newButton = button.cloneNode(true);
                     button.parentNode.replaceChild(newButton, button);
                     
-                    // Add new event listener
                     newButton.addEventListener('click', function() {
                         displayCertificate(forElement);
                     });
                 });
                 
-                // Close the upload modal
                 uploadModal.style.display = 'none';
                 
-                // Clear the form
                 document.getElementById('imageUrl').value = '';
             }
         });
         
-        // Add clear button to the upload form for testing
         const uploadForm = document.getElementById('uploadForm');
         const clearStorageBtn = document.createElement('button');
         clearStorageBtn.type = 'button';
@@ -830,7 +756,6 @@
         });
         uploadForm.appendChild(clearStorageBtn);
         
-        // Call updateImageButtons once at the beginning to handle stored images
         updateImageButtons();
     </script>
 </body>
